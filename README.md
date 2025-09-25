@@ -6,3 +6,6 @@ Ensayando funcionalidad entre Github y Visual Studio. Acabo de verificar que fun
 
 # Ensayo 2
 Ensayando los commits y la linea de puntos 
+
+# Ensayo 3
+Creamos el file cpp y ensayamos que funcionara
