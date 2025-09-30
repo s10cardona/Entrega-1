@@ -9,3 +9,8 @@ Ensayando los commits y la linea de puntos
 
 # Ensayo 3
 Creamos el file cpp y ensayamos que funcionara
+
+# Inicio 1
+Empezamos a crear el archivo del juego 
+
+# 
