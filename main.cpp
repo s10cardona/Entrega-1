@@ -15,14 +15,5 @@ int main() {
 
     return 0;
 }
-Si quieres, puedo:
-
-Añadir más comentarios explicando línea por línea.
-
-Hacer que juegue la computadora (IA sencilla).
-
-Mejorar la validación de entradas o agregar reinicio de partida.
-
-¿Te gustaría alguna de esas mejoras o lo dejamos así?
 
 
