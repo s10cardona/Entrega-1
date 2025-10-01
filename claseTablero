@@ -1,0 +1,82 @@
+class Tablero {
+private:
+    char** celdas; // puntero a puntero: matriz dinámica 3x3
+
+public:
+    // Constructor: reserva memoria y la inicializa con espacios
+    Tablero() {
+        // reservar 3 punteros a filas
+        celdas = new char*[3];
+        for (int i = 0; i < 3; i++) {
+            // para cada fila reservar 3 caracteres
+            celdas[i] = new char[3];
+            for (int j = 0; j < 3; j++) {
+                celdas[i][j] = ' '; // celda vacía representada con espacio
+            }
+        }
+    }
+
+    // Destructor: libera la memoria reservada
+    ~Tablero() {
+        for (int i = 0; i < 3; i++) {
+            delete[] celdas[i]; // liberar cada fila
+        }
+        delete[] celdas; // liberar el arreglo de punteros
+    }
+
+    // Muestra el tablero por pantalla (índices incluidos)
+    void mostrar() {
+        cout << "   0   1   2\n";
+        for (int i = 0; i < 3; i++) {
+            cout << i << "  ";
+            for (int j = 0; j < 3; j++) {
+                cout << celdas[i][j];
+                if (j < 2) cout << " | ";
+            }
+            cout << "\n";
+            if (i < 2) cout << "  ---+---+---\n";
+        }
+        cout << "\n";
+    }
+
+    // Intenta colocar una ficha en la fila, columna dadas. Devuelve true si se pudo.
+    bool colocarFicha(int fila, int col, char ficha) {
+        // comprobar límites y que la celda esté vacía
+        if (fila >= 0 && fila < 3 && col >= 0 && col < 3) {
+            if (celdas[fila][col] == ' ') {
+                celdas[fila][col] = ficha;
+                return true;
+            }
+        }
+        return false; // movimiento inválido
+    }
+
+    // Verifica si hay un ganador. Devuelve 'X' o 'O' si alguien ganó, o ' ' si no hay ganador.
+    char verificarGanador() {
+        // revisar filas y columnas
+        for (int i = 0; i < 3; i++) {
+            // fila i
+            if (celdas[i][0] != ' ' && celdas[i][0] == celdas[i][1] && celdas[i][1] == celdas[i][2])
+                return celdas[i][0];
+            // columna i
+            if (celdas[0][i] != ' ' && celdas[0][i] == celdas[1][i] && celdas[1][i] == celdas[2][i])
+                return celdas[0][i];
+        }
+        // diagonales
+        if (celdas[0][0] != ' ' && celdas[0][0] == celdas[1][1] && celdas[1][1] == celdas[2][2])
+            return celdas[0][0];
+        if (celdas[0][2] != ' ' && celdas[0][2] == celdas[1][1] && celdas[1][1] == celdas[2][0])
+            return celdas[0][2];
+
+        return ' '; // nadie ganó todavía
+    }
+
+    // Comprueba si el tablero está lleno (empate)
+    bool tableroLleno() {
+        for (int i = 0; i < 3; i++)
+            for (int j = 0; j < 3; j++)
+                if (celdas[i][j] == ' ') return false;
+        return true;
+    }
+};
+
