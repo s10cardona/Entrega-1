@@ -1,7 +1,5 @@
 #include <iostream>
-#include <cstdlib>
-#include <ctime>
+#include <limits> // para limpiar la entrada si hay error
 using namespace std;
 
-char t[9] = {' ',' ',' ',' ',' ',' ',' ',' ',' '};
-bool turno;
+
