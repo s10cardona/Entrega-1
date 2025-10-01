@@ -1,11 +1,5 @@
 #include <iostream>
-
+#include <limits> // para limpiar la entrada si hay error
 using namespace std;
 
-int main(){
 
-    cout << "Hola mundo!";
-    cout << "Estamos esayando que funcione";
-
-    return 0;
-}
