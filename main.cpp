@@ -1,5 +1,7 @@
 #include <iostream>
 #include <limits> // para limpiar la entrada si hay error
+#include <claseJuego>
+#include <claseTablero>
 using namespace std;
 
 // Función principal
